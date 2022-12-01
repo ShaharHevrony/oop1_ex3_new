@@ -20,8 +20,6 @@ public:
 
     bool dividedBy(const Zi& divisor) const;
 
-    Zi operator+=(const Zi& z);
-
 private:
     int m_real;
 
@@ -30,22 +28,23 @@ private:
 
 Zi operator+(const Zi& z1, const Zi& z2);
 
+Zi& operator+=(Zi& z1, const Zi& z2);
 
 Zi operator-(const Zi& z1, const Zi& z2);
 
-Zi operator-=(const Zi& z1, const Zi& z2);
+Zi& operator-=(Zi& z1, const Zi& z2);
 
 Zi operator*(const Zi& z1, const Zi& z2);
 
-Zi operator*=(const Zi& z1, const Zi& z2);
+Zi& operator*=(Zi& z1, const Zi& z2);
 
 Zi operator/(const Zi& z1, const Zi& z2);
 
-Zi operator/=(const Zi& z1, const Zi& z2);
+Zi& operator/=(Zi& z1, const Zi& z2);
 
 Zi operator%(const Zi& z1, const Zi& z2);
 
-Zi operator%=(const Zi& z1, const Zi& z2);
+Zi& operator%=(Zi& z1, const Zi& z2);
 
 Zi operator-(const Zi& z);
 

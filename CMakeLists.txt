@@ -1,17 +1,27 @@
-cmake_minimum_required(VERSION 3.23)
-project(oop1_ex03_new)
+cmake_minimum_required (VERSION 3.23)
 
-set(CMAKE_CXX_STANDARD 14)
-set (MY_AUTHORS "Shahar Hevrony")
+project (oop1_ex03)
+set (MY_AUTHORS "your_name_here")
+
 include (cmake/CompilerSettings.cmake)
 
-add_executable(${CMAKE_PROJECT_NAME})
+add_executable (${CMAKE_PROJECT_NAME})
+add_library (obj STATIC)
+target_link_libraries (${CMAKE_PROJECT_NAME} PRIVATE obj)
+
+#target_compile_options(obj PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
+#target_link_options(obj PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
 
 add_subdirectory (include)
 add_subdirectory (src)
 
-#add_subdirectory (test)
-#add_subdirectory (external/catch2/src)
+include (cmake/Zip.cmake)
 
-#oop1_ex03_new src/main.cpp src/zi.cpp src/vector.cpp include/vector.h include/zi.h
-#test/vectorTests.cpp test/ziTests.cpp
+add_subdirectory (external/catch2)
+
+add_executable (tests)
+add_subdirectory (test)
+
+include (CTest)
+include (Catch)
+catch_discover_tests(tests)

@@ -1,4 +1,4 @@
-#include "../include/zi.h"
+#include "zi.h"
 
 #include <iostream>
 

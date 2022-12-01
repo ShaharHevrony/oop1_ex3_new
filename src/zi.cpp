@@ -28,20 +28,23 @@ bool Zi::dividedBy(const Zi& divisor) const{
     }
 }
 
-Zi Zi::operator+=(const Zi& z){
-    return z;
-}
-
 Zi operator+(const Zi& z1, const Zi& z2){
     return Zi(z1.real() + z2.real(), z1.imag() + z2.imag());
+}
+
+
+Zi& operator+=(Zi& z1, const Zi& z2) {
+    z1 = z1 + z2;
+    return z1;
 }
 
 Zi operator-(const Zi& z1, const Zi& z2){
     return Zi(z1.real() - z2.real(), z1.imag() - z2.imag());
 }
 
-Zi operator-=(const Zi& z1, const Zi& z2){
-    return z1 - z2;
+Zi& operator-=(Zi& z1, const Zi& z2){
+    z1 = z1 - z2;
+    return z1;
 }
 
 Zi operator*(const Zi& z1, const Zi& z2){
@@ -53,8 +56,9 @@ Zi operator*(const Zi& z1, const Zi& z2){
     return Zi((real1*real2 - imag1*imag2) , (real1*imag2 + real2*imag1));
 }
 
-Zi operator*=(const Zi& z1, const Zi& z2){
-    return z1 * z2;
+Zi& operator*=(Zi& z1, const Zi& z2){
+    z1 = z1 * z2;
+    return z1;
 }
 
 Zi operator/(const Zi& z1, const Zi& z2){
@@ -64,16 +68,18 @@ Zi operator/(const Zi& z1, const Zi& z2){
     return Zi(round((double) mul.real()/norm), round((double) mul.imag()/norm));
 }
 
-Zi operator/=(const Zi& z1, const Zi& z2){
-    return z1 / z2;
+Zi& operator/=(Zi& z1, const Zi& z2){
+    z1 = z1 / z2;
+    return z1;
 }
 
 Zi operator%(const Zi& z1, const Zi& z2){
     return Zi(z1.real() % (z1/z2).real(), z1.imag() % (z1/z2).imag());
 }
 
-Zi operator%=(const Zi& z1, const Zi& z2){
-    return z1 % z2;
+Zi& operator%=(Zi& z1, const Zi& z2){
+    z1 = z1 % z2;
+    return z1;
 }
 
 Zi operator-(const Zi& z){
