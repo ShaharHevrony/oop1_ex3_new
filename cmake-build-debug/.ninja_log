@@ -1,0 +1,7 @@
+# ninja log v5
+1	252	6915751123515509	build.ninja	7df3ede08123af77
+2	104	0	C:/Users/Hevrony/CLionProjects/oop1_ex03_new/cmake-build-debug/CMakeFiles/cmake.verify_globs	4759eddf26eeaeda
+12	1288	6915751694354957	CMakeFiles/oop1_ex03_new.dir/src/vector.cpp.obj	ac7896e0f0b1aad2
+0	8105	6915751749928262	CMakeFiles/oop1_ex03_new.dir/src/main.cpp.obj	d677b3a12131a63c
+61	9031	6915751776445188	CMakeFiles/oop1_ex03_new.dir/src/zi.cpp.obj	7140d1d93f8444fd
+9032	9846	6915751784055210	oop1_ex03_new.exe	68b7518716ec996a
