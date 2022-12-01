@@ -13,6 +13,5 @@ add_subdirectory (src)
 #add_subdirectory (test)
 #add_subdirectory (external/catch2/src)
 
-
 #oop1_ex03_new src/main.cpp src/zi.cpp src/vector.cpp include/vector.h include/zi.h
 #test/vectorTests.cpp test/ziTests.cpp
