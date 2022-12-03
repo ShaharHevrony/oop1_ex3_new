@@ -17,10 +17,10 @@ public:
 	bool empty() const;
 
 	const Zi& operator[](int index) const; //to read
+
 	Zi& operator[](int index); //to write
 
 private:
-	Zi *m_zi;
 	int m_size;
 };
 
