@@ -6,6 +6,9 @@ Zi::Zi(int a, int b):m_real(a), m_imag(b){}
 
 Zi::Zi(const Zi* other):m_real(other->real()), m_imag(other->imag()){}
 
+Zi::~Zi(){
+
+}
 int Zi::real() const{
     return m_real;
 }
@@ -96,11 +99,11 @@ bool operator!=(const Zi& z1, const Zi& z2){
 }
 
 std::ostream& operator<<(std::ostream& os, const Zi& z){
-    os << z.real() << "+" << z.imag() << "*i";
+    os << z.real() << "+" << z.imag() << "*i ";
     return os;
 }
 
-Zi& operator=(const Zi& other){
+Zi Zi::operator=(const Zi& other){
     Zi z = new Zi (other.real(), other.imag());
     return z;
 }

@@ -14,14 +14,14 @@ ZiArray::ZiArray(const Zi arr[], int size): m_size(size){
 	}
 }
 
-ZiArray::ZiArray(const ZiArray& other): m_size(other.m_size){
+ZiArray::ZiArray(const ZiArray& other):m_size(other.m_size){
     m_ziArr = new Zi[m_size];
 	for (int count = 0; count < m_size; count++) {
         m_ziArr[count] = other[count];
 	}
 }
 
-ZiArray::~ZiArray() {
+ZiArray::~ZiArray(){
     delete [] m_ziArr;
 }
 
@@ -35,6 +35,7 @@ ZiArray& ZiArray::operator=(const ZiArray& other){
         m_ziArr = newArray;
         m_size = other.m_size;
     }
+    return *this;
 }
 
 int ZiArray::size() const{

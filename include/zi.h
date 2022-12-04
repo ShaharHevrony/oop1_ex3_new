@@ -12,6 +12,8 @@ public:
 
     Zi(const Zi* other);
 
+    ~Zi(); //FIXME:
+
     int real() const;
 
     int imag() const;
@@ -21,6 +23,8 @@ public:
     Zi conj() const;
 
     bool dividedBy(const Zi& divisor) const;
+
+    Zi operator=(const Zi& other);
 
 private:
     int m_real;
@@ -55,7 +59,5 @@ bool operator==(const Zi& z1, const Zi& z2);
 bool operator!=(const Zi& z1, const Zi& z2);
 
 std::ostream& operator<<(std::ostream& os, const Zi& z);
-
-Zi& operator=(const Zi& other);
 
 #endif //UNTITLED_ZI_H

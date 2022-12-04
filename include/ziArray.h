@@ -10,7 +10,7 @@ public:
 
 	ZiArray(const Zi arr[], int size);
 
-	ZiArray(const ZiArray& old);
+	ZiArray(const ZiArray& other);
 
     ~ZiArray();
 
