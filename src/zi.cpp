@@ -2,26 +2,28 @@
 #include <ostream>
 #include <cmath>
 
-Zi::Zi(int a, int b):m_real(a), m_image(b){}
+Zi::Zi(int a, int b):m_real(a), m_imag(b){}
+
+Zi::Zi(const Zi* other):m_real(other->real()), m_imag(other->imag()){}
 
 int Zi::real() const{
     return m_real;
 }
 
 int Zi::imag() const{
-    return m_image;
+    return m_imag;
 }
 
 int Zi::norm() const{
-    return m_real^2+m_image^2;
+    return m_real^2+m_imag^2;
 }
 
 Zi Zi::conj() const{
-    return Zi(m_real,-m_image);
+    return Zi(m_real,-m_imag);
 }
 
 bool Zi::dividedBy(const Zi& divisor) const{
-    if(Zi(m_real, m_image) % divisor == 0){
+    if(Zi(m_real, m_imag) % divisor == 0){
         return true;
     } else {
         return false;
@@ -31,7 +33,6 @@ bool Zi::dividedBy(const Zi& divisor) const{
 Zi operator+(const Zi& z1, const Zi& z2){
     return Zi(z1.real() + z2.real(), z1.imag() + z2.imag());
 }
-
 
 Zi& operator+=(Zi& z1, const Zi& z2) {
     z1 = z1 + z2;
@@ -97,4 +98,9 @@ bool operator!=(const Zi& z1, const Zi& z2){
 std::ostream& operator<<(std::ostream& os, const Zi& z){
     os << z.real() << "+" << z.imag() << "*i";
     return os;
+}
+
+Zi& operator=(const Zi& other){
+    Zi z = new Zi (other.real(), other.imag());
+    return z;
 }

@@ -10,6 +10,8 @@ class Zi{
 public:
     Zi(int a=0, int b=0);
 
+    Zi(const Zi* other);
+
     int real() const;
 
     int imag() const;
@@ -23,7 +25,7 @@ public:
 private:
     int m_real;
 
-    int m_image;
+    int m_imag;
 };
 
 Zi operator+(const Zi& z1, const Zi& z2);
@@ -53,5 +55,7 @@ bool operator==(const Zi& z1, const Zi& z2);
 bool operator!=(const Zi& z1, const Zi& z2);
 
 std::ostream& operator<<(std::ostream& os, const Zi& z);
+
+Zi& operator=(const Zi& other);
 
 #endif //UNTITLED_ZI_H
