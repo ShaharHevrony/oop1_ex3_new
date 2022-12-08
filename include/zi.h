@@ -10,7 +10,7 @@ class Zi{
 public:
     Zi(int a=0, int b=0);
 
-    Zi(const Zi* other);
+    Zi(const Zi& other);
 
     ~Zi(); //FIXME:
 
@@ -24,7 +24,7 @@ public:
 
     bool dividedBy(const Zi& divisor) const;
 
-    Zi operator=(const Zi& other);
+    Zi& operator=(const Zi& other);
 
 private:
     int m_real;

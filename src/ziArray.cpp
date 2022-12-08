@@ -1,10 +1,10 @@
 #include "ziArray.h"
 
 ZiArray::ZiArray(int size, const Zi& value): m_size(size){
-	m_ziArr = new Zi[m_size];
-	for (int count = 0; count < m_size; count++){
+    m_ziArr = new Zi[m_size];
+    for (int count = 0; count < m_size; count++){
         m_ziArr[count] = value;
-	}
+    }
 }
 
 ZiArray::ZiArray(const Zi arr[], int size): m_size(size){

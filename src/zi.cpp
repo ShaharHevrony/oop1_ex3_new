@@ -4,11 +4,10 @@
 
 Zi::Zi(int a, int b):m_real(a), m_imag(b){}
 
-Zi::Zi(const Zi* other):m_real(other->real()), m_imag(other->imag()){}
+Zi::Zi(const Zi& other):m_real(other.real()), m_imag(other.imag()){}
 
-Zi::~Zi(){
+Zi::~Zi() {}
 
-}
 int Zi::real() const{
     return m_real;
 }
@@ -18,7 +17,7 @@ int Zi::imag() const{
 }
 
 int Zi::norm() const{
-    return m_real^2+m_imag^2;
+    return m_real*m_real + m_imag*m_imag;
 }
 
 Zi Zi::conj() const{
@@ -65,20 +64,20 @@ Zi& operator*=(Zi& z1, const Zi& z2){
     return z1;
 }
 
-Zi operator/(const Zi& z1, const Zi& z2){
+Zi operator/(const Zi& z1, const Zi& z2) {
     Zi conj = z2.conj();
     int norm = z2.norm();
-    Zi mul = z1*conj;
-    return Zi(round((double) mul.real()/norm), round((double) mul.imag()/norm));
+    Zi mul = z1 * conj;
+    return Zi(round((double)mul.real() / norm), round((double)mul.imag() / norm));
 }
-
+    
 Zi& operator/=(Zi& z1, const Zi& z2){
     z1 = z1 / z2;
     return z1;
 }
 
 Zi operator%(const Zi& z1, const Zi& z2){
-    return Zi(z1.real() % (z1/z2).real(), z1.imag() % (z1/z2).imag());
+    return Zi(z1.real() % z2.real(), z1.imag() % z2.imag());
 }
 
 Zi& operator%=(Zi& z1, const Zi& z2){
@@ -99,11 +98,20 @@ bool operator!=(const Zi& z1, const Zi& z2){
 }
 
 std::ostream& operator<<(std::ostream& os, const Zi& z){
-    os << z.real() << "+" << z.imag() << "*i ";
-    return os;
+    if (z.imag() >= 0) {
+        os << z.real() << "+" << z.imag() << "i";
+        return os;
+    } else {
+        os << z.real() << z.imag() << "i";
+        return os;
+    }
 }
 
-Zi Zi::operator=(const Zi& other){
-    Zi z = new Zi (other.real(), other.imag());
-    return z;
+Zi& Zi::operator=(const Zi& other){
+    if (this == &other) {
+        return *this;
+    }
+    this->m_real = other.real();
+    this->m_imag = other.imag();
+    return *this;
 }

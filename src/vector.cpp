@@ -1,6 +1,8 @@
 #include "vector.h"
+#include <iostream>
+
 // Created by Hevrony on 29/11/2022.
-Vector::Vector (int size , const Zi& init ): m_ZiArray(size,init){}
+Vector::Vector (int size , const Zi& init): m_ZiArray(size,init){}
 
 Vector::Vector (const Zi arr[], int size): m_ZiArray(arr, size){}
 
@@ -120,8 +122,12 @@ bool operator!=(const Vector& vector1, const Vector& vector2){
 }
 
 std::ostream& operator<<(std::ostream& os, const Vector& vector){
-    for (int index = 0; index < vector.size(); index++){
-        os << vector[index];
+    if(vector.ziArray().empty()){
+        return os;
     }
+    for (int index = 0; index < vector.size() - 1; index++){
+        os << vector[index] << std::string(1, ' ');
+    }
+    os << vector[vector.size() - 1];
     return os;
 }
