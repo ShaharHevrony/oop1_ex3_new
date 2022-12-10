@@ -38,7 +38,7 @@ void Vector::setZiArray(const ZiArray& other){
 }
 
 Vector operator+(const Vector& vector1, Vector& vector2) {
-    Vector newVector;
+    Vector newVector = Vector();
     if (vector1.size() >= vector2.size()) {
         newVector = Vector(vector1);
         for (int index = 0; index < vector2.size(); index++) {
@@ -60,7 +60,9 @@ Vector& operator+=(Vector& vector1, Vector& vector2){
 }
 
 Vector operator-(const Vector& vector1, Vector& vector2){
-    return vector1 + (-vector2);
+    Vector vector = vector1 + (-vector2);
+    -vector2;
+    return vector;
 }
 
 Vector& operator-=(Vector& vector1, Vector& vector2){
@@ -75,13 +77,19 @@ Vector operator*(const Vector& vector1, const Vector& vector2){
         for(int index = 0 ; index < vector2.size() ; index++){
             newVector[index] *= vector2[index];
         }
+        for (int index = vector2.size(); index < vector1.size(); index++) {
+            newVector[index] *= Zi();
+        }
     } else{
         newVector = Vector(vector2);
         for(int index = 0 ; index < vector1.size() ; index++){
             newVector[index] *= vector1[index];
         }
+        for (int index = vector1.size(); index < vector2.size(); index++) {
+            newVector[index] *= Zi();
+        }
     }
-    return newVector;
+    return Vector(newVector);
 }
 
 Vector& operator*=(Vector& vector1, const Vector& vector2){

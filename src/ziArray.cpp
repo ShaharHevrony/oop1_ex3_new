@@ -22,7 +22,7 @@ ZiArray::ZiArray(const ZiArray& other):m_size(other.m_size){
 }
 
 ZiArray::~ZiArray(){
-    //delete [] m_ziArr;
+    delete [] m_ziArr;
 }
 
 ZiArray& ZiArray::operator=(const ZiArray& other){
