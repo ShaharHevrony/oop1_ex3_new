@@ -6,23 +6,32 @@
 
 class ZiArray {
 public:
-	explicit ZiArray(int size = 0, const Zi& value = Zi());
+    //constructor that build array that contain in each index a complex number
+    explicit ZiArray(int size = 0, const Zi& value = Zi());
 
-	ZiArray(const Zi arr[], int size);
+    //constructor that build array that contain in each index a complex number
+    ZiArray(const Zi arr[], int size);
 
-	ZiArray(const ZiArray& other);
+    //copy constructor of the complex array
+    ZiArray(const ZiArray& other);
 
+    //destructor of the complex array
     ~ZiArray();
 
+    // assignment operator between arrays
     ZiArray& operator=(const ZiArray& other);
 
-	int size() const;
+    //get the size of the array
+    int size() const;
 
-	bool empty() const;
+    //check if empty
+    bool empty() const;
 
-	const Zi& operator[](int index) const; //to read
+    //check in the index in the array
+    const Zi& operator[](int index) const; //to read
 
-	Zi& operator[](int index); //to write
+    //check in the index in the array and return the complex number
+    Zi& operator[](int index); //to write
 
 private:
 	int m_size;
@@ -30,12 +39,16 @@ private:
     Zi* m_ziArr;
 };
 
+//add between two arrays of complex numbers
 ZiArray operator+(const ZiArray& arr1, const ZiArray& arr2);
 
+// put the result of the adding in the first number
 ZiArray& operator+=(ZiArray& arr1, const ZiArray& arr2);
 
+//check if the array is even
 bool operator==(const ZiArray& arr1, const ZiArray& arr2);
 
+//check if the array are not even
 bool operator!=(const ZiArray& arr1, const ZiArray& arr2);
 
 #endif //OOP1_EX03_NEW_ARRAY_H
