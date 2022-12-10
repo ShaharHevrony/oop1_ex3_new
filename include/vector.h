@@ -16,29 +16,31 @@ public:
 
     ~Vector();
 
-    Vector& operator=(const Vector& other);
+    Vector& operator= (const Vector& other);
 
-    const Zi& operator[](int index) const; //to read
+    const Zi& operator[] (int index) const; //to read
 
-    Zi& operator[](int index); //to write
+    Zi& operator[] (int index); //to write
 
     int size() const ;
 
     ZiArray ziArray() const;
 
+    void setZiArray (const ZiArray& other);
+
 private:
     ZiArray m_ZiArray;
 };
 
-Vector operator+(const Vector& vector1, const Vector& vector2);
+Vector operator+(const Vector& vector1, Vector& vector2);
 
-Vector& operator+=(Vector& vector1, const Vector& vector2);
+Vector& operator+=(Vector& vector1, Vector& vector2);
 
-Vector operator-(const Vector& vector1, const Vector& vector2);
+Vector operator-(const Vector& vector1, Vector& vector2);
 
-Vector& operator-=(Vector& vector1, const Vector& vector2);
+Vector& operator-=(Vector& vector1, Vector& vector2);
 
-Vector operator*(const Vector& vector1, const Vector& vector2);
+Vector operator* (const Vector& vector1, const Vector& vector2);
 
 Vector& operator*=(Vector& vector1, const Vector& vector2);
 

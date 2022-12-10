@@ -8,11 +8,11 @@ Vector::Vector (const Zi arr[], int size): m_ZiArray(arr, size){}
 
 Vector::Vector (const Vector& other): m_ZiArray(other.m_ZiArray){}
 
-Vector::~Vector(){} //FIXME;
+Vector::~Vector (){}
 
 Vector& Vector::operator=(const Vector& other){
-    this->m_ZiArray = other.m_ZiArray ;
-    return *this ;
+    this->m_ZiArray = other.m_ZiArray;
+    return *this;
 }
 
 const Zi& Vector::operator[](int index) const {
@@ -31,44 +31,39 @@ ZiArray Vector::ziArray() const {
     return m_ZiArray;
 }
 
-Vector operator+(const Vector& vector1, const Vector& vector2){
+void Vector::setZiArray(const ZiArray& other){
+    for (int index = 0; index < other.size(); index++) {
+        m_ZiArray[index] = other[index];
+    }
+}
+
+Vector operator+(const Vector& vector1, Vector& vector2) {
     Vector newVector;
-    if(vector1.size() >= vector2.size()){
+    if (vector1.size() >= vector2.size()) {
         newVector = Vector(vector1);
-        for(int index = 0 ; index < vector2.size() ; index++){
+        for (int index = 0; index < vector2.size(); index++) {
             newVector[index] += vector2[index];
         }
-    } else{
+    }
+    else {
         newVector = Vector(vector2);
-        for(int index = 0 ; index < vector1.size() ; index++){
+        for (int index = 0; index < vector1.size(); index++) {
             newVector[index] += vector1[index];
         }
     }
-    return newVector;
+    return Vector(newVector);
 }
 
-Vector& operator+=(Vector& vector1, const Vector& vector2){
+Vector& operator+=(Vector& vector1, Vector& vector2){
     vector1 = vector1 + vector2;
     return vector1;
 }
 
-Vector operator-(const Vector& vector1, const Vector& vector2){
-    Vector newVector;
-    if(vector1.size() >= vector2.size()){
-        newVector = Vector(vector1);
-        for(int index = 0 ; index < vector2.size() ; index++){
-            newVector[index] -= vector2[index];
-        }
-    } else{
-        newVector = Vector(vector2);
-        for(int index = 0 ; index < vector1.size() ; index++){
-            newVector[index] -= vector1[index];
-        }
-    }
-    return newVector;
+Vector operator-(const Vector& vector1, Vector& vector2){
+    return vector1 + (-vector2);
 }
 
-Vector& operator-=(Vector& vector1, const Vector& vector2){
+Vector& operator-=(Vector& vector1, Vector& vector2){
     vector1 = vector1 - vector2;
     return vector1;
 }
@@ -108,7 +103,7 @@ Vector& operator*=(Vector& vector, const Zi& z){
 
 Vector& operator-(Vector& vector){
     for(int index = 0; index < vector.size(); index++){
-        -vector[index];
+        vector[index] = -vector[index];
     }
     return vector;
 }

@@ -40,6 +40,7 @@ oss << -v2;
 REQUIRE(rtrim(oss.view()) == "-5+0i -3+6i");
 }
 
+
 TEST_CASE("Operations with different size vectors", "[Vector]")
 {
 auto v0 = Vector();

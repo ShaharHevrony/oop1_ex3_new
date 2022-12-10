@@ -22,18 +22,17 @@ ZiArray::ZiArray(const ZiArray& other):m_size(other.m_size){
 }
 
 ZiArray::~ZiArray(){
-    delete [] m_ziArr;
+    //delete [] m_ziArr;
 }
 
 ZiArray& ZiArray::operator=(const ZiArray& other){
     if(this != &other){
-        Zi* newArray = new Zi[other.m_size];
-        for (int count = 0; count < other.m_size; count++) {
-            newArray[count] = other[count];
-        }
         delete[] m_ziArr;
-        m_ziArr = newArray;
+        m_ziArr = new Zi[other.m_size];
         m_size = other.m_size;
+        for (int count = 0; count < m_size; count++) {
+            m_ziArr[count] = other[count];
+        }
     }
     return *this;
 }

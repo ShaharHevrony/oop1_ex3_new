@@ -6,7 +6,7 @@ Zi::Zi(int a, int b):m_real(a), m_imag(b){}
 
 Zi::Zi(const Zi& other):m_real(other.real()), m_imag(other.imag()){}
 
-Zi::~Zi() {}
+Zi::~Zi(){}
 
 int Zi::real() const{
     return m_real;
@@ -77,7 +77,9 @@ Zi& operator/=(Zi& z1, const Zi& z2){
 }
 
 Zi operator%(const Zi& z1, const Zi& z2){
-    return Zi(z1.real() % z2.real(), z1.imag() % z2.imag());
+    Zi z3 = z1 / z2;
+    z3 *= z2;
+    return z1 - z3;
 }
 
 Zi& operator%=(Zi& z1, const Zi& z2){
