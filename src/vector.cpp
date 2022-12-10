@@ -31,6 +31,12 @@ ZiArray Vector::ziArray() const {
     return m_ZiArray;
 }
 
+void Vector::setZiArray(const ZiArray& other){
+    for (int index = 0; index < other.size(); index++) {
+        m_ZiArray[index] = other[index];
+    }
+}
+
 Vector operator+(const Vector& vector1, Vector& vector2) {
     Vector newVector = Vector();
     if (vector1.size() >= vector2.size()) {
