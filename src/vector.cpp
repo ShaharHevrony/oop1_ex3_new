@@ -153,7 +153,6 @@ bool operator!=(const Vector& vector1, const Vector& vector2){
 }
 
 //print the vectors
-
 std::ostream& operator<<(std::ostream& os, const Vector& vector){
     if(vector.ziArray().empty()){
         return os;
