@@ -9,6 +9,7 @@ ZiArray::ZiArray(int size, const Zi& value): m_size(size){
 }
 
 //constructor that build array that contain in each index a complex number
+
 ZiArray::ZiArray(const Zi arr[], int size): m_size(size){
     m_ziArr = new Zi[m_size];
     for (int count = 0; count < m_size; count++) {

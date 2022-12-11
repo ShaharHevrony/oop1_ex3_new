@@ -40,6 +40,7 @@ private:
 };
 
 //add between two arrays of complex numbers
+
 ZiArray operator+(const ZiArray& arr1, const ZiArray& arr2);
 
 // put the result of the adding in the first number

@@ -81,6 +81,7 @@ bool operator==(const Zi& z1, const Zi& z2);
 bool operator!=(const Zi& z1, const Zi& z2);
 
 //print the complex number
+
 std::ostream& operator<<(std::ostream& os, const Zi& z);
 
 #endif //UNTITLED_ZI_H

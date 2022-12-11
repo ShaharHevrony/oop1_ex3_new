@@ -64,6 +64,7 @@ Vector operator*(const Vector& vector, const Zi& z);
 Vector& operator*=(Vector& vector, const Zi& z);
 
 //unary operator
+
 Vector& operator-(Vector& vector);
 
 //check if the vectors are even

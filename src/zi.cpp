@@ -120,6 +120,7 @@ bool operator!=(const Zi& z1, const Zi& z2){
     return !(z1==z2);
 }
 //print the complex number
+
 std::ostream& operator<<(std::ostream& os, const Zi& z){
     if (z.imag() >= 0) {
         os << z.real() << "+" << z.imag() << "i";
